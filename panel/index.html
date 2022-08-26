@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="description" content="CMAS Coatepec">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Quack">
+    <link rel="shortcut icon" type="image/x-icon" href="../recursos/img/logo2022.ico" />
+    <title>Reportes CMAS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+    <script src="../js/ol.js"></script>
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css">
+    <link rel="stylesheet" href="../css/main03012022.css">
+    <link rel="stylesheet" href="../css/enjoyhint.css">
+    <link rel="stylesheet" href="../css/select2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'>
+    <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js'></script>
+    <script src="../js/enjoyhint.min.js"></script>
+    <script src="../js/select2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="../js/ol-ext.js"></script>
+    <link rel="stylesheet" id="google-fonts-1-css" href="https://fonts.googleapis.com/css?family=Montserrat%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=5.8.3" type="text/css" media="all">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-194577214-2"></script>
+    <script>
+      (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+          (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+          m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+      })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+      ga('create', 'UA-194577214-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
+  <body>
+    <div class="loadingSpinner">
+      <p class="loadingMSG">Cargando <span>.</span>
+        <span>.</span>
+        <span>.</span>
+      </p>
+    </div>
+    
+
+   <script>
+      function preventBack(){ window.history.forward();}
+      setTimeout(preventBack, 0);
+   </script>
+
+   </head>
+   <body>
+    <div class="header">
+      <div class="col-md-3 col-xs-3" style="text-align: center;">
+        
+        <div class="loadingSpinner">
+           <p class="loadingMSG">Cargando<span>.</span><span>.</span><span>.</span></p>
+        </div>
+         <img class="main-logo" src="http://cmas-coatepec.ticveracruz.com/wp/wp-content/uploads/2022/06/logo2.png"  style="max-width: 150px; width: 100%;" />
+        
+      </div>
+    </div>
+    <div class="row topHeader">
+      <div class="col-xs-12 secondTopHeader">
+        <div class="cabecera2022"></div>
+        
+        
+      </div>
+    </div>
+
+    <div class="containerGeneral  container-fluid">
+      <div class="blockUser"></div>
+      <form id="msform">
+        
+
+        <ul id="steps_c" class="steps_c">
+          <li class="steps-item steps-item--one active">
+            <span class="steps-item__span">
+              Paso 1
+            </span>
+          </li>
+          <li class="steps-item steps-item--two">
+            <span class="steps-item__span">
+              Paso 2
+            </span>
+          </li>
+          <li class="steps-item steps-item--3">
+            <span class="steps-item__span">
+              Paso 3
+            </span>
+          </li>
+          <li class="steps-item steps-item--4">
+            <span class="steps-item__span">
+              Paso 4
+            </span>
+          </li>
+        </ul>
+        <!-- fieldsets -->
+        <fieldset>
+         <div class="col-xs-12 noPadding btnsHeadMovil">
+            <!--<div class="container_btnsHeadMovil">
+               <div class="col-xs-6">
+                  <p class="btnHeadMovil"><i class="fa-solid fa-phone"></i> LLAMAR</p>
+               </div>
+               <div class="col-xs-6" style="display: none;">
+                  <p class="btnHeadMovil"><i class="fa-solid fa-comments"></i> CHAT</p>
+               </div>
+            </div>-->
+         </div>
+
+          <div class="form-card col-xs-12">
+            <div class="categorias row col-xs-12 noPadding">
+              <div class="search">
+                <input type="text" id="buscador" class="searchTerm" placeholder="¿Qué estas buscando?">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+              <div class="col-xs-12 resultados_busqueda">
+                <div class="main-container-cards col-xs-12">
+                  
+                </div>
+              </div>
+              <h3 class="topIndicaciones seleccioneReporteTxt">Seleccione tipo de reporte</h3>
+              
+
+              <div class="col-md-12 col-xs-12 catt main-container-cards noPadding">
+                
+              </div>
+            </div>
+            
+          </div>
+        </fieldset>
+        <fieldset class="sub">
+          <div class="form-card col-xs-12">
+            <div class="subcategoria row col-xs-12">
+              <h3 class="topIndicaciones">Seleccione la categoria</h3>
+              <!--<img id="catPasoDos" src="">-->
+              
+              <div class="main-container-cards col-xs-12 box-wrapper">
+                  
+              </div>
+            </div>
+            
+            <input type="button" name="previous" class="previous action-button-previous" value="Anterior" style="visibility: hidden;" />
+          </div>
+        </fieldset>
+        <fieldset class="detalles animate glow delay-1">
+          <div class="form-card col-xs-12">
+            <div class="paso3Img">
+              <img class="catPasoTres" src="">
+              <h3 class="paso3">Detalle y localice su <span class="reporteTXTSpan">reporte</span>
+              </h3>
+            </div>
+            <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+            <p class="topIndicacionesP">Sólo es indispensable llenar los campos marcados con <i class="fa fa-asterisk"></i>. </p>
+            
+            <div id="detallesReporteGenerales" class="detallesReporteGenerales row col-xs-12" style="display: none;">
+              <div class="campos">
+                <div class="field">
+                  <label>Teléfono a 10 dígitos <i class="fa fa-asterisk"></i>
+                  </label>
+                  <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10" minlength="10" type="number" id="telefono" name="telefono" placeholder="Telefono a 10 dígitos">
+                </div>
+                <br />
+                <div class="field">
+                  <label>Favor de proporcionar su correo electrónico para consultar el seguimiento del reporte</label>
+                  <input type="email" id="email" name="email" placeholder="Email">
+                </div>
+                <br />
+                <div class="field" style="max-width: none;">
+                  <label>Detalle su <span class="reporteTXTSpan">reporte </span>
+                    <i class="fa fa-asterisk"></i>
+                  </label>
+                  <textarea id="descripcion_reporte" placeholder="Detalles del reporte"></textarea>
+                </div>
+                <br />
+                <div class="field" style="text-align: center;">
+                  <img src="" id="preview" style="display: none;">
+                  <br />
+                  <label for="imagen" id="label_imagen" style="cursor: pointer;">
+                    <img src="../recursos/dis/camara.svg" style="width: 120px;" />
+                    <br />
+                    <span style="font-size: 18px;font-weight: bold;">Subir fotografía</span>
+                  </label>
+                  <input type="file" id="imagen" name="imagen" style="display:none" accept="image/x-png,image/gif,image/jpeg">
+                  <div class="col-xs-12" style="display:none">
+                    <canvas width="1200" height="1200" id="canvas" />
+                  </div>
+                </div>
+                <input type="hidden" id="getLat"></input>
+                <input type="hidden" id="getLon"></input>
+                <p>En el siguiente mapa, localice la ubicación del problema con los servicios públicos que desea reportar, dé clic para posicionar el marcador en el sitio. </p>
+                <div id="map" class="map" style="height: 400px; width: 100%;"></div>
+                <div class="field col-md-12">
+                  <label>Colonia </label>
+                  <input type="text" id="colonia" name="Colonia" placeholder="Colonia">
+                </div>
+                <div class="field col-md-6">
+                  <label>Calle <i class="fa fa-asterisk"></i>
+                  </label>
+                  <input type="text" id="Calle" name="Calle" placeholder="Calle">
+                </div>
+                <div class="field col-md-6">
+                  <label>Número exterior </label>
+                  <input type="text" id="no_ext" name="no_ext" placeholder="Número exterior">
+                </div>
+                <div class="field col-md-12">
+                  <label>Referencias</label>
+                  <textarea id="Referencias" name="Referencias" placeholder="Especifique entre qué calles se encuentra el objeto de reporte o algún lugar de referencia."></textarea>
+                </div>
+                <br />
+              </div>
+            </div>
+            <div class="detallesReporteEspecificos row col-xs-12" style="display: none;"></div>
+            
+            <input type="button" name="previous" class="previous action-button-previous" value="Anterior" />
+          </div>
+        </fieldset>
+        <fieldset class="final">
+          <div class="form-card col-xs-12">
+            <div class="paso3Img">
+              <img class="catPasoTres" src="">
+              <h3 class="paso3">Verifique sus datos y envíe su reporte</h3>
+            </div>
+            <div class="datos topIndicacionesP" style="margin-top: 5%;"></div>
+            <div style="max-width: 900px;margin: 0 auto;margin-top: 5%;">
+              <div class="col-xs-1">
+                <input type="checkbox" name="checkbox" id="checkbox_id" value="value">
+              </div>
+              <div class="col-xs-10">
+                <label style="color: #363636;" for="checkbox_id">Los datos son correctos.
+                </label>
+              </div>
+              <div class="enviarReporteBox col-xs-12" style="visibility:  hidden;margin-top: 5%;">
+                <span id="enviarReporte" class="btnOk botonFinal">Enviar reporte</span>
+              </div>
+            </div>
+            <input type="button" name="previous" class="previous action-button-previous prevFinal" value="Anterior" style="margin-top: 15%;" />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+   
+    <!-- Footer -->
+    <footer id="footer" class="to-move narrow classic"><div class="foot-widgets four-col dark-sidebar"><div class="foot-content clearfix"><div id="block-5" class="widget widget_block">
+      <div class="wp-container-1 wp-block-group"><div class="wp-block-group__inner-container"></div></div>
+      </div><div id="block-6" class="widget widget_block">
+      <div class="wp-container-2 wp-block-group"><div class="wp-block-group__inner-container"></div></div>
+      </div></div>
+                      </div>
+      <div class="foot-items">
+          <div class="foot-content clearfix">
+              <div class="foot-text" style="margin-top: 50px;text-align: center;">Copyright © [2022] Todos los derechos reservados CMAS Coatepec</div>    </div>
+      </div>
+    </footer>
+    
+    <script type="text/javascript">
+      var home = true;
+    </script>
+    <script src="../js/main03012022.js"></script>
+  </body>
+</html>
+
+

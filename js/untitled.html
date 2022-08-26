@@ -1,0 +1,732 @@
+<t t-name="website.proyectos-sociales">
+  <t t-call="website.layout">
+    <div id="wrap" class="oe_structure oe_empty">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css"/>
+      <link href="/sirs_pros/static/src/css/main2020.css"  rel="stylesheet"/>
+      <section class="html_form" data-form-model="sirs_pros.proyecto" data-form-id="1">
+   
+        <div class="loadingSpinner"><p class="loadingMSG">Cargando<span>.</span><span>.</span><span>.</span></p></div>
+
+        <div class="container mt16 mb16 proyectosSociales">
+          <img src="https://ayuntamiento.xalapa.gob.mx/o/adaptive-media/image/8978775/high-definition/4+FINANCIAMIENTO+DE+PROYECTOS+SOCIALES+26022021-PORTADA+REDES.png" style="width: 100%"/>
+          <h2>Formulario de registro para participar en la Convocatoria municipal de financiamiento de proyectos sociales</h2>    
+          <p>El H. Ayuntamiento de Xalapa, mediante la Dirección de Participación Ciudadana, a través de la Subdirección de Atención a la Sociedad Civil, invita a las organizaciones de la sociedad civil legalmente constituidas a participar en la Cuarta Convocatoria de Financiamiento Municipal de Proyectos Sociales, la cual busca impulsar acciones de la sociedad civil organizada desde diferentes enfoques en miras del bien común de la ciudadanía xalapeña.</p>
+
+          <p>En este sitio se encuentra el formulario de registro para participar en la convocatoria mencionada, cuyos campos deberán ser llenados correctamente. Después de enviar la solicitud, recibirá un correo electrónico con un enlace adjunto donde podrá descargar la propuesta técnica. </p> 
+
+          <p><b><a class="basesLink" target="_Blank" href="https://ayuntamiento.xalapa.gob.mx/web/participacion-ciudadana/programa-de-financiamiento-municipal-osc">Consulte toda la información aquí.</a></b></p>
+
+          <br/>
+          <h2 class="titulosPrincipales">Propuesta técnica</h2>
+          <form role="form" method="POST" action="/form/sinsert" enctype="multipart/form-data">
+            <div class="oe_structure" id="html_fields">
+              <div class="paso1">
+                
+                <h3 class="cintillo2019">Datos del proyecto</h3>
+                <div class="row">
+                  <div class="col-md-6 col-xs-12">  
+                    <div class="hff hff_dropbox form-group" data-form-type="dropbox" data-field-id="20">
+                        <label class="control-label" for="modalidad">Modalidad</label>  
+                        <select class="form-control recoverThis" id="modalidad" name="modalidad" required="required">
+                          <option/>   
+                          <option value="primera">Primera vez</option>    
+                          <option value="continuidad">Continuidad</option>   
+                      </select>   
+                    </div>    
+                  </div>    
+                  <div class="col-md-6 col-xs-12 montoSolicitadoContainer">        
+                    <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="21">    
+                      <div class="msgError">
+                        <span id="montoInvalido" class="msgErrortext">El monto ingresado no cumple con las condiciones.</span>
+                      </div>
+                        <label class="control-label" for="monto_solicitado">Monto Solicitado</label>    
+                        <input type="text" min="0" disabled="disabled" id="monto_solicitado" class="form-control money recoverThis" required="required" name="monto_solicitado" maxlength="100"/>   
+                        <label class="help" name="monto_solicitado_help" for="monto_solicitado" hidden="hidden"/>
+                    </div>  
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="16">
+                      <label class="control-label required" for="nombre_proyecto">Nombre del Proyecto</label>
+                      <input type="text" class="form-control recoverThis" required="required" name="nombre_proyecto"/>
+                    </div>
+                  </div>
+                </div>
+                
+                
+                <div class="row">
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_dropbox form-group" data-form-type="dropbox" data-field-id="1">
+                      <label class="control-label required" for="eje">Eje</label>
+                      
+                      <select class="form-control ejeSelect recoverThis" name="eje" required="required" data-ttype="many2one">
+                        <option/>
+                        <option value="1">Desarrollo social</option>
+                        <option value="2">Educación, arte y cultura</option>
+                        <option value="3">Salud</option>
+                        <option value="4">Medio ambiente</option>
+                        <option value="5">Desarrollo económico</option>
+                      </select>
+                    </div>
+                  </div>   
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_dropbox form-group" data-form-type="dropbox" data-field-id="2">
+                      <label class="control-label required" for="linea_eje">Linea de acción</label>
+                     
+                      <select class="form-control lineaEje recoverThis" name="linea_eje" required="required" data-ttype="many2one" data-domain="[('id_eje', '=', 'eje')]" data-related-trigger="eje">
+                        <option/>
+                      </select>
+                    </div>
+                  </div>         
+                </div>
+                
+                <div class="row">
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="3" hidden="hidden">
+                      <label class="control-label" for="organizacion_id">Información sobre la organización solicitante</label>
+                      <input type="text" class="form-control recoverThis" name="organizacion_id" maxlength="100"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="4" hidden="hidden">
+                      <label class="control-label" for="responsable_id">Información del responsable</label>
+                      <input type="text" class="form-control recoverThis" name="responsable_id" maxlength="100"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textbox form-group" data-form-type="textarea" data-field-id="17">
+                      <label class="control-label required" for="problema_responde">Problema al que responde</label>
+                      <textarea type="text" class="form-control recoverThis" required="required" name="problema_responde"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="5">
+                      <label class="control-label required" for="obj_general">Objetivo general del proyecto</label>
+                      <textarea class="form-control recoverThis" required="required" name="obj_general"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="6">
+                      <label class="control-label required" for="obj_especifico">Objetivos especificos del proyecto</label>
+                      <textarea class="form-control recoverThis" required="required" name="obj_especifico"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="6">
+                      <label class="control-label required" for="indicadoresmed">Indicadores de medición</label>
+                      <textarea class="form-control recoverThis" required="required" name="indicadoresmed"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="7">
+                      <label class="control-label required" for="metas">Metas</label>
+                      <textarea class="form-control recoverThis" required="required" name="metas"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="8">
+                      <label class="control-label required" for="justificacion">Justificación</label>
+                      <textarea class="form-control recoverThis" required="required" name="justificacion"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="26">
+                        <label class="control-label required" for="diagnostico_situacional">Diagnóstico situacional</label>
+                        <textarea class="form-control recoverThis" name="diagnostico_situacional" required="required"/>
+                    </div>  
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="9">
+                        <label class="control-label required" for="desc_actividades">Descripción de las actividades</label>
+                        <textarea class="form-control recoverThis" required="required" name="desc_actividades"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="10">
+                      <label class="control-label required" for="alc_del_proy">Alcances del proyecto</label>
+                      <textarea class="form-control recoverThis" required="required" name="alc_del_proy"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="11">
+                      <label class="control-label required" for="pob_benef">Población participante</label>
+                      <textarea class="form-control recoverThis" required="required" name="pob_benef"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="12">
+                      <label class="control-label required" for="estrategias">Estrategias para cumplir el objetivo</label>
+                      <textarea class="form-control recoverThis" required="required" name="estrategias"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="24">
+                        <label class="control-label" for="alianzas">Alianzas o articulaciones</label>
+                        <textarea class="form-control recoverThis" name="alianzas"/>
+                      </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="27">
+                        <label class="control-label required" for="abono">Cómo la realización de su proyecto abona a la corresponsabilidad ciudadana en el Municipio</label>
+                        <textarea class="form-control recoverThis" name="abono" required="required"/>
+                      </div>
+                 </div>  
+
+                 <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="27">
+                        <label class="control-label required" for="aquederecho_corresp_proy">¿A qué derecho corresponde su proyecto y por qué?</label>
+                        <textarea class="form-control recoverThis" name="aquederecho_corresp_proy" required="required"/>
+                      </div>
+                 </div>  
+
+                  <div class="col-md-12 col-xs-12">
+                    <p class="control-label">Ubicación geográfica donde se desarrollarán las actividades</p>                    
+                  </div>
+                  <div class="col-md-12 col-xs-12">
+                    <a id="add_zona_impacto"><span class="glyphicon glyphicon-plus" aria-hidden="true"/> Agregar Colonias</a>
+                  </div>
+                  <div id="dynamic_zona_impacto" class="col-xs-12 row" style="display:none;">
+                      <div class="col-md-4 col-xs-12">
+                          <div class="col-xs-12 col-md-4">
+                            <label class="control-label" for="colonia_zona_impacto">Colonia</label>
+                          </div>
+                          <div class="col-xs-12 col-md-8">
+                            <select id="colonia_zona_impacto" name="colonia_zona_impacto"/>
+                          </div>         
+                      </div>
+                      <div class="col-md-4 col-xs-12">
+                        <div class="col-xs-12 col-md-4">
+                          <label class="control-label" for="calle_zona_impacto">Calle</label>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                          <input type="text" class="form-control" id="calle_zona_impacto" name="calle_zona_impacto" maxlength="100"/>
+                        </div>     
+                      </div>
+
+                      <div class="col-md-4 col-xs-12">
+                        <div class="col-xs-12 col-md-4">
+                          <label class="control-label" for="tipo_instalacion">Tipo de instalación</label>
+                        </div>
+                        <div class="col-xs-12 col-md-8">
+                          <select class="form-control" id="tipo_instalacion" name="tipo_instalacion" required="required">
+                              <option value="CGC">CGC</option>    
+                              <option value="esc_pub">Escuela pública</option>    
+                              <option value="esc_priv">Escuela privada</option>    
+                              <option value="dom_part">Domicilio particular</option>  
+                              <option value="casa_com">Casa comunitaria</option>  
+                              <option value="viapub">Vía pública</option>  
+                              <option value="parque">Parque</option>  
+                          </select>  
+                        </div>     
+                      </div>
+                  </div>
+                      
+                 <div class="col-xs-12">
+                    <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                      <label class="control-label required" for="cronograma">Cronograma</label>
+                      <input name="cronograma" type="file" accept="application/pdf" required="required"/>
+                    </div>
+                  </div>
+
+                  <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="19" hidden="hidden">          
+                    <label class="control-label" for="json_indicadores">Json Indicadores</label>    
+                    <input type="text" class="form-control" name="json_indicadores" maxlength="100"/>   
+                  </div>    
+                  
+                  <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="28" hidden="hidden">
+                    <label class="control-label" for="json_zona_impacto">Json Zona Impacto</label>
+                    <input type="text" class="form-control" name="json_zona_impacto" maxlength="100"/>
+                  </div>
+                  
+                  <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="15" hidden="hidden">
+                    <label class="control-label" for="email_to">email_to</label>
+                    <input type="text" class="form-control" name="email_to" maxlength="100"/>
+                  </div>
+                  
+                </div>
+
+              </div>
+                    
+              <div class="paso2">
+                <h3 class="cintillo2019">Datos de la organización</h3>
+
+                <div class="row">
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="20">
+                      <label class="control-label required" for="rfc_organizacion">RFC</label>
+                      <input type="text" id="rfc_buscar" placeholder="Ej. VECJ880326T64" class="form-control upper_required recoverThis" name="rfc_organizacion" required="required" minlength="12" maxlength="12" pattern="^\s*([A-Z]{3})([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([A-Z0-9]{2})([A0-9])\s*$"/>
+                    </div> 
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <span class="btnXalapa verificaRFC">Buscar</span>
+                  </div>
+                </div>
+
+                <div class="datosOrg">
+                  <div class="row">
+                    <div class="col-md-12 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="17">
+                        <label class="control-label  required" for="nombre_organizacion">Nombre</label>
+                        <input type="text" class="form-control recoverThis" name="nombre_organizacion" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+
+                    <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="46">
+                        <label class="control-label" for="cluni_organizacion">CLUNI</label>
+                        <input type="text" class="form-control recoverThis" name="cluni_organizacion" maxlength="100"/>
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="47">
+                        <label class="control-label required" for="objeto_social_organizacion">Objeto social</label>
+                        <input type="text" class="form-control recoverThis" name="objeto_social_organizacion" required="required"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="21">
+                        <label class="control-label" for="telefono_fijo_organizacion">Teléfono fijo</label>
+                        <input type="text" class="form-control recoverThis" name="telefono_fijo_organizacion" maxlength="100" pattern="[0-9]*\.?[0-9]+"/>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="22">
+                        <label class="control-label" for="telefono_movil_organizacion">Teléfono móvil</label>
+                        <input type="text" class="form-control recoverThis" name="telefono_movil_organizacion" maxlength="100" pattern="[0-9]*\.?[0-9]+"/>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="23">
+                        <label class="control-label required" for="email_organizacion">Email</label>
+                        <input type="text" class="form-control recoverThis" name="email_organizacion" maxlength="100" pattern="^\s*[a-zA-ZÀ-ÿ\u00f1\u00d10-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-ZÀ-ÿ\u00f1\u00d10-9-]+(?:\.[a-zA-ZÀ-ÿ\u00f1\u00d10-9-]+)*\s*$" required="required"/>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="18">
+                        <label class="control-label  required" for="calle_organizacion">Calle</label>
+                        <input type="text" class="form-control recoverThis" name="calle_organizacion" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="19">
+                        <label class="control-label required" for="numero_exterior_organizacion">Nº. Ext.</label>
+                        <input type="text" class="form-control recoverThis" name="numero_exterior_organizacion" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-6 ">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="51">
+                        <label class="control-label" for="numero_interior_organizacion">Nº. Int.</label>
+                        <input type="text" class="form-control recoverThis" name="numero_interior_organizacion" maxlength="100"/>
+                      </div>
+                    </div>   
+                  </div>
+                    
+
+                  
+                  <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="48">
+                    <label class="control-label required" for="resenia_organizacion">Breve reseña de la organización</label>
+                    <textarea class="form-control recoverThis" name="resenia_organizacion" required="required"/>
+                  </div>
+                
+                </div>
+
+              </div>
+              
+              <div class="paso3">
+                <h3 class="cintillo2019">Datos del representante legal</h3>
+
+                <div class="row">
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="30">
+                      <label class="control-label required" for="curp_representante">CURP</label>
+                      <input type="text" class="form-control upper_required recoverThis" id="curp_representante" name="curp_representante" required="required" maxlength="100" placeholder="Ej. VECJ880326HVZYLR08" pattern="^\s*([A-Z]{4})([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM](AS|BC|BS|CC|CL|CM|CS|CH|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[A-Z]{3}[0-9A-Z][0-9]\s*$"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <span class="btnXalapa verificaCURPRep">Buscar</span>
+                  </div>
+                </div>
+                
+
+
+                <div class="datosRep">
+
+                  <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="24">
+                        <label class="control-label  required" for="nombre_representante">Nombre</label>
+                        <input type="text" class="form-control recoverThis" id="nombre_representante" name="nombre_representante" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="25">
+                        <label class="control-label  required" for="apellido_paterno_representante">Apellido paterno</label>
+                        <input type="text" class="form-control recoverThis" id="apellido_paterno_representante" name="apellido_paterno_representante" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="26">
+                        <label class="control-label" for="apellido_materno_representante">Apellido materno</label>
+                        <input type="text" class="form-control recoverThis" id="apellido_materno_representante" name="apellido_materno_representante" maxlength="100"/>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-3 col-xs-12">
+                      <div class="hff hff_dropbox form-group" data-form-type="dropbox" data-field-id="27">
+                        <label class="control-label required" for="sexo_representante">Sexo</label>
+                        <select class="form-control recoverThis" id="sexo_representante" name="sexo_representante" required="required">
+                          <option/>
+                          <option value="man">Hombre</option>
+                          <option value="woman">Mujer</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-9 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="31">
+                        <label class="control-label required" for="rfc_representante">RFC</label>
+                        <input type="text" placeholder="Ej. VECJ880326T64" id="rfc_representante" class="form-control upper_required recoverThis" required="required" name="rfc_representante" maxlength="100" pattern="^\s*([A-Z]{4})([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([A-Z0-9]{2})([A0-9])\s*$"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="32">
+                        <label class="control-label" for="telefono_fijo_representante">Teléfono fijo</label>
+                        <input type="text" class="form-control recoverThis" id="telefono_fijo_representante" name="telefono_fijo_representante" maxlength="100" pattern="[0-9]*\.?[0-9]+"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="33">
+                        <label class="control-label" for="telefono_movil_representante">Teléfono móvil</label>
+                        <input type="text" class="form-control recoverThis" id="telefono_movil_representante" name="telefono_movil_representante" maxlength="100" pattern="[0-9]*\.?[0-9]+"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="34">
+                        <label class="control-label required" for="email_representante">Email</label>
+                        <input type="text" class="form-control recoverThis" id="email_representante" name="email_representante" maxlength="100" pattern="^\s*[a-zA-ZÀ-ÿ\u00f1\u00d10-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-ZÀ-ÿ\u00f1\u00d10-9-]+(?:\.[a-zA-ZÀ-ÿ\u00f1\u00d10-9-]+)*\s*$" required="required"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="28">
+                        <label class="control-label  required" for="calle_representante">Calle</label>
+                        <input type="text" class="form-control recoverThis" id="calle_representante" name="calle_representante" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="29">
+                        <label class="control-label required" for="numero_exterior_representante">Nº. Ext.</label>
+                        <input type="text" class="form-control recoverThis" id="numero_exterior_representante" name="numero_exterior_representante" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-12 direccionesBlock1">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="50">
+                        <label class="control-label" for="numero_interior_representante">Nº. Int.</label>
+                        <input type="text" class="form-control recoverThis" id="numero_interior_representante" name="numero_interior_representante" maxlength="100"/>
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-xs-12 direccionesCuadro1">
+                      
+                    </div>
+                  </div>
+
+                  <div class="row ">
+                    <div class="colCP3">
+
+                    </div>
+                    <div class="colCP4">
+
+                    </div>
+                    
+                  </div>
+
+
+                </div>
+              </div>
+                       
+              <div class="paso4">
+                <h3 class="cintillo2019">Datos del responsable del proyecto</h3>
+                 <p class="responsableEsLegal">
+                  <input class="styled-checkbox recoverThis" id="styled-checkbox-1" type="checkbox" value="value1"/>
+                   <label for="styled-checkbox-1">¿Es la misma persona la representante legal que el responsable del proyecto?</label>
+                   </p>
+
+                <div class="row mismaPersona">
+                  <div class="col-md-6 col-xs-12">
+                    <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="41">
+                      <label class="control-label required" for="curp_responsable">CURP</label>
+                      <input type="text" class="form-control upper_required recoverThis" id="curp_responsable" name="curp_responsable" required="required" maxlength="100" placeholder="Ej. VECJ880326HVZYLR08" pattern="^\s*([A-Z]{4})([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM](AS|BC|BS|CC|CL|CM|CS|CH|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[A-Z]{3}[0-9A-Z][0-9]\s*$"/>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-xs-12">
+                    <span class="btnXalapa verificaCURPRes">Buscar</span>
+                  </div>
+                </div>
+
+
+
+                <div class="datosRes">
+                  <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="35">
+                        <label class="control-label  required" for="nombre_responsable">Nombre</label>
+                        <input type="text" class="form-control recoverThis" id="nombre_responsable" name="nombre_responsable" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="36">
+                        <label class="control-label  required" for="apellido_paterno_responsable">Apellido paterno</label>
+                        <input type="text" class="form-control recoverThis" id="apellido_paterno_responsable" name="apellido_paterno_responsable" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="37">
+                        <label class="control-label" for="apellido_materno_responsable">Apellido materno</label>
+                        <input type="text" class="form-control recoverThis" id="apellido_materno_responsable" name="apellido_materno_responsable" maxlength="100"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-2 col-xs-12">
+                      <div class="hff hff_dropbox form-group" data-form-type="dropbox" data-field-id="38">
+                        <label class="control-label required" for="sexo_responsable">Sexo</label>
+                        <select class="form-control recoverThis" id="sexo_responsable" name="sexo_responsable" required="required">
+                          <option/>
+                          <option value="man">Hombre</option>
+                          <option value="woman">Mujer</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-md-5 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="42">
+                        <label class="control-label required" for="rfc_responsable">RFC</label>
+                        <input type="text" class="form-control upper_required recoverThis" id="rfc_responsable" name="rfc_responsable" required="required" maxlength="100" placeholder="Ej. VECJ880326T64" pattern="^\s*([A-Z]{4})([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([A-Z0-9]{2})([A0-9])\s*$"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="43">
+                        <label class="control-label" for="telefono_fijo_responsable">Teléfono fijo</label>
+                        <input type="text" class="form-control recoverThis" id="telefono_fijo_responsable" name="telefono_fijo_responsable" maxlength="100" pattern="[0-9]*\.?[0-9]+"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="44">
+                        <label class="control-label" for="telefono_movil_responsable">Teléfono móvil</label>
+                        <input type="text" class="form-control recoverThis" id="telefono_movil_responsable" name="telefono_movil_responsable" maxlength="100" pattern="[0-9]*\.?[0-9]+"/>
+                      </div>
+                    </div>
+                    <div class="col-md-4 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="45">
+                        <label class="control-label required" for="email_responsable">Email</label>
+                        <input type="text" class="form-control recoverThis" id="email_responsable" name="email_responsable" maxlength="100" pattern="^\s*[a-zA-ZÀ-ÿ\u00f1\u00d10-9.!#$%&amp;’*+/=?^_`{|}~-]+@[a-zA-ZÀ-ÿ\u00f1\u00d10-9-]+(?:\.[a-zA-ZÀ-ÿ\u00f1\u00d10-9-]+)*\s*$" required="required"/>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="39">
+                        <label class="control-label  required" for="calle_responsable">Calle</label>
+                        <input type="text" class="form-control recoverThis" id="calle_responsable" name="calle_responsable" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="40">
+                        <label class="control-label required" for="numero_exterior_responsable">Nº. Ext.</label>
+                        <input type="text" class="form-control recoverThis" id="numero_exterior_responsable" name="numero_exterior_responsable" maxlength="100" required="required"/>
+                      </div>
+                    </div>
+                    <div class="col-md-3 col-xs-12 direccionesBlock2">
+                      <div class="hff hff_textbox form-group" data-form-type="textbox" data-field-id="49">
+                        <label class="control-label" for="numero_interior_responsable">Nº. Int.</label>
+                        <input type="text" class="form-control recoverThis" id="numero_interior_responsable" name="numero_interior_responsable" maxlength="100"/>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12 col-xs-12 direccionesCuadro2">
+                      
+                    </div>
+                    
+                  </div>
+
+                  <div class="row">
+                    <div class="colCP5">
+
+                    </div>
+                    <div class="colCP6">
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-xs-12">
+                  <h2 class="titulosPrincipales">Propuesta financiera</h2>   
+                  <div id="jsGrid"/>    
+              </div>
+
+              <div class="col-xs-12">
+
+                <div class="hff hff_textarea form-group" data-form-type="textarea" data-field-id="48">
+                  <label class="control-label" for="observaciones">Observaciones de la propuesta financiera (en caso de que haya usado la opcion "Otros", especificar).</label>
+                  <textarea class="form-control recoverThis" name="observaciones" />
+                </div>
+              </div>
+
+              <div class="col-xs-12" style="margin-bottom: 5%;">
+                  <h2 class="titulosPrincipales">Documentación</h2>   
+                  
+
+                 <!--<div class="oficioLiberacion">
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22" style="display: none;">
+                        <label class="control-label" for="oficio_liberacion">Oficio de liberación (solo para modalidad continuidad)</label>
+                        <input name="oficio_liberacion" type="file" accept="application/pdf"/>
+                      </div>
+                    </div>
+                  </div>-->
+
+
+                  <div class="documentos">
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="acta_constitutiva">Actas constitutivas de la Organización (incluye modificaciones) </label>
+                        <input name="acta_constitutiva" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="comprobante_domicilio_organizacion">Comprobante de domicilio fiscal de la organización</label>
+                        <input name="comprobante_domicilio_organizacion" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="trayectoria_organizacion">Semblanza de la trayectoria de la organización</label>
+                        <input name="trayectoria_organizacion" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="carta_protesta">Carta bajo protesta de decir verdad</label>
+                        <input name="carta_protesta" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="identificacion_representante">Identificación oficial del Representante legal</label>
+                        <input name="identificacion_representante" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="curriculum_vitae_representante">Curriculum Vitae del representante legal</label>
+                        <input name="curriculum_vitae_representante" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="identifi_responsable">Identificación oficial de representante de proyecto</label>
+                        <input name="identifi_responsable" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+                    
+
+                   
+
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="doc_fiscal">Documentación fiscal (cédula de identificación fiscal y opinión de cumplimiento del SAT)</label>
+                        <input name="doc_fiscal" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>  
+
+                     <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label" for="curriculum_vitae_reponsable">Currículum vitae del responsable de proyecto.</label>
+                        <input name="curriculum_vitae_reponsable" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div> 
+
+
+                   <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="carta_liberacion">Oficio de liberación (sólo para modalidad continuidad)</label>
+                        <input name="carta_liberacion" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-12">
+                      <div class="hff hff_binary form-group" data-form-type="file_select" data-field-id="22">
+                        <label class="control-label required" for="anexo_exp_finan_municip">Anexo sobre experiencias de financiamiento municipal (sólo proyectos de continuidad)
+</label>
+                        <input name="anexo_exp_finan_municip" type="file" accept="application/pdf" required="required"/>
+                      </div>
+                    </div>
+
+ 
+                  </div>
+
+              </div>
+              
+            </div>
+
+
+            <input type="hidden" name="form_id" value="1"/>
+            <input type="hidden" name="csrf_token" value=""/>
+            <input style="display:none;" name="my_pie" value="3.14"/>
+            <button class="btn btn-primary btn-lg">Submitt</button>
+
+            <script type="text/javascript" src="/sirs_pros/static/src/js/form_utils2021.js"/>
+            
+          </form>
+          <div class="txtSoporte col-md-6 col-xs-12" style="margin-top: 2%;">
+            <p>Si presenta alguna falla técnica durante el proceso de registro, favor de reportarlo a la  Subdirección de Gobierno Electrónico al siguiente correo: <a href="mailto:gobiernoelectronico@xalapa.gob.mx?Subject=Financiamiento%20de%20Proyectos%20Sociales" target="_Blank">gobiernoelectronico@xalapa.gob.mx</a></p>
+          </div>
+        </div>
+
+
+      </section>
+      <script type="text/javascript" src="/sirs_pros/static/src/js/main2021.js"/>
+      <script type="text/javascript" src="/sirs_pros/static/src/js/js_grid_config.js"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"/>
+    </div>
+  </t>
+</t>
